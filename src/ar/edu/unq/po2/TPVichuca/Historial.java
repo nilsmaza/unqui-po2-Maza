@@ -26,6 +26,8 @@ public class Historial {
 		return participo;
 	}
 	
+	
+	
 	public void agregarConocimientoAParticipante(Usuario user) {
 		if(this.primeraVesQueParticipa(user)) {
 			user.setConocimiento(ConocimientoBasico);
