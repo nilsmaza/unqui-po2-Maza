@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.TPVichuca;
 
+
 public class ConocimientoBasico extends Conocimiento {
 	
 	
@@ -12,6 +13,7 @@ public class ConocimientoBasico extends Conocimiento {
 	public void valorarMuestra(Muestra muestra) {
 		
 	}
+	
 
-
+	
 }
