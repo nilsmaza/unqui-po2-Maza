@@ -41,5 +41,12 @@ public class Usuario {
 		historial.agregarMuestra(muestra);
 	}
 	
+	public void opinarSobreLaMuestra(Usuario user,Muestra muestra,Opinion opinion) {
+		this.getConocimiento().valorarMuestra(this, muestra, opinion);
+	}
+	
+	public void recibirEvaluacionDeConocimiento(Historial historial,Usuario user) {
+		historial.getEvaluador().cambiarConocimiento(historial, this);
+	}
 
 }

@@ -5,18 +5,26 @@ import java.util.ArrayList;
 public class Historial {
 	
 	private ArrayList<Muestra> listaDeMuestras;
+	private EvaluadorDeConocimiento Evaluador = new  EvaluadorDeConocimiento();
 
 	public Historial(ArrayList<Muestra> listaDeMuestras) {
 		super();
 		this.listaDeMuestras = new ArrayList<Muestra>();
 	}
 	
+	public EvaluadorDeConocimiento getEvaluador() {
+		return Evaluador;
+	}
+
+	public void setEvaluador(EvaluadorDeConocimiento evaluador) {
+		Evaluador = evaluador;
+	}
 	public ArrayList<Muestra> getListaDeMuestras() {
 		return listaDeMuestras;
 	}
 
 	public void agregarMuestra(Muestra muestra) {
-		agregarConocimientoAParticipante(muestra.getUser());
+		agregarConocimientoAParticipanteNuevo(muestra.getUser());
 		listaDeMuestras.add(muestra);
 	}
 	
@@ -48,11 +56,13 @@ public class Historial {
 		return listaDeMuestrasDe;
 	}
 	
-	public void agregarConocimientoAParticipante(Usuario user) {
+	public void agregarConocimientoAParticipanteNuevo(Usuario user) {
 		ConocimientoBasico basico = new ConocimientoBasico();
 			if(this.primeraVesQueParticipa(user)) {
 				user.setConocimiento(basico);
 			}
 	}
+
+	
 
 }

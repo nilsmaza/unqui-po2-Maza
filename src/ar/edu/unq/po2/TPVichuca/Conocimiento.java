@@ -3,10 +3,20 @@ package ar.edu.unq.po2.TPVichuca;
 public class Conocimiento implements IConocimiento {
 	
 	private String tipoDeConocimiento;
+	private Verificacion tipoDeVerificacion;
 	
-	public Conocimiento(String tipoDeConocimiento) {
+	public Conocimiento(String tipoDeConocimiento,Verificacion tipoDeVerificacion ) {
 		super();
 		this.tipoDeConocimiento = tipoDeConocimiento;
+		this.tipoDeVerificacion = tipoDeVerificacion;
+	}
+
+	public Verificacion getTipoDeVerificacion() {
+		return tipoDeVerificacion;
+	}
+	
+	public void setTipoDeVerificacion(Verificacion tipoDeVerificacion) {
+		this.tipoDeVerificacion = tipoDeVerificacion;
 	}
 
 	public String getTipoDeConocimiento() {
@@ -31,11 +41,9 @@ public class Conocimiento implements IConocimiento {
 			}
 		return noVerificado;
 	}
-	
+
 	@Override
-	public void valorarMuestra(Muestra muestra) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion){}
+	
 
 }

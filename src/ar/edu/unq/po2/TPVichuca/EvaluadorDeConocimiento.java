@@ -1,20 +1,26 @@
 package ar.edu.unq.po2.TPVichuca;
 
-public class ConocimientoExperto extends Conocimiento{
+import java.util.ArrayList;
+import java.util.Calendar;
 
-	private static final String tipoDeConocimiento = "Experto";
-	private static final Verificacion tipoDeVerificacion = new VerificacionExperto(false);
+public class EvaluadorDeConocimiento {
 	
-	public ConocimientoExperto() {
-		super(tipoDeConocimiento,tipoDeVerificacion);
+	private Usuario user;
+	
+	public Usuario getUser() {
+		return user;
+	}
+
+	public void setUser(Usuario user) {
+		this.user = user;
 	}
 	
-	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion) {
-		if(this.getTipoDeVerificacion().puedeOpinarSobreLa(muestra) && this.muestraActaParaValorar(user, muestra)) {
-			muestra.getOpiniones().add(opinion);
+	public void cambiarConocimiento(Historial historial , Usuario user) {
+		if(this.esExperto(historial, user)) {
+			user.setConocimiento(new ConocimientoExperto());
 		}
 	}
-/*	
+
 	public boolean esExperto(Historial historial ,Usuario user) {
 		return this.condicionMuestra(historial, user) && this.condicionOpinion(historial,user);
 	}
@@ -99,5 +105,5 @@ public class ConocimientoExperto extends Conocimiento{
 	public Integer revisionesHechas(Usuario user,Historial historial) {
 		return historial.opinionesDe(user).size();
 	}
-*/
+	
 }

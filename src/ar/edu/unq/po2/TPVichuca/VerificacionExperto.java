@@ -3,11 +3,11 @@ package ar.edu.unq.po2.TPVichuca;
 import java.util.ArrayList;
 
 public class VerificacionExperto extends Verificacion{
+	
 
-	@Override
-	public Opinion verificar() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public VerificacionExperto(boolean valorDeVerdad) {
+		super(valorDeVerdad);
 	}
 
 	public ArrayList<Opinion> OpinionesDeUsuarios(Muestra muestra) {
@@ -31,9 +31,26 @@ public class VerificacionExperto extends Verificacion{
 			}
 		return opinionActual;
 	}
+
+	public boolean puedeOpinarSobreLa(Muestra muestra) {
+		return  muestra.getVerificado().isVerificado();
+	}
 	
-//	public boolean puedeVerificarse(Muestra muestra) {
-//		return  && muestra.verificada(); <== ver
-//	}
+	public void verificar(Muestra muestra) {
+		 if(this.masDe2votoPorUnaOpinion(muestra)) {
+			 muestra.setVerificado(new VerificacionExperto(true));
+		 }
+	}
+	
+	public boolean masDe2votoPorUnaOpinion(Muestra muestra) {
+		Opinion opinionActual = this.opinionActual(muestra);
+		Integer contador = 0;
+			for(Opinion opinion : this.OpinionesDeUsuarios(muestra)) {
+				if(opinionActual == opinion) {
+					contador += 1;
+				}
+			}
+		return contador > 2;
+	}
 
 }

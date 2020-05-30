@@ -8,11 +8,11 @@ public class Muestra {
 	
 	private Usuario user;
 	private BufferedImage fotoDelInsecto;
-//	private list<Respuestas> respuestas;
 	private Calendar fechaCreada;
-	private Verificacion nivelDeVerificacion;
+	private Verificacion verificado;
 	private ArrayList<Opinion> listaDeOpiniones;
 	
+
 	public Usuario getUser() {
 		return user;
 	}
@@ -28,18 +28,28 @@ public class Muestra {
 	public void setFechaCreada(Calendar fechaCreada) {
 		this.fechaCreada = fechaCreada;
 	}
+	public Verificacion getVerificado() {
+		return verificado;
+	}
 
-	/*	
-	public Respuesta resultadoActual() {
+	public void setVerificado(Verificacion verificado) {
+		this.verificado = verificado;
+	}
+	
+	public Opinion opinionActual() {
+		return this.getVerificado().opinionActual(this);
+	}
+	
+/*	public Opinion opinionActual() {
 		Integer contadorDeRespuestas = 0;
-		Respuesta respuestaActual;
-			for(Respuesta respueta : respuestas){
-				if(contadorDeRespuestas < this.cantidadDeVecesQueApareceLa(respuesta)) {
-					contadorDeRespuestas = this.cantidadDeVecesQueApareceLa(respuesta);
-					respuestaActual = respueta;
+		Opinion opinionActual = null;
+			for(Opinion opinion : this.getOpiniones() ){
+				if(contadorDeRespuestas < this.cantidadDeVecesQueApareceLa(opinion)) {
+					contadorDeRespuestas = this.cantidadDeVecesQueApareceLa(opinion);
+					opinionActual = opinion;
 				}
 			}
-		return respuestaActual;
+	return opinionActual;
 	}
 */	
 	public Integer cantidadDeVecesQueApareceLa(Opinion opinion) {
@@ -81,5 +91,7 @@ public class Muestra {
 		 	}
 		 return contador;
 	}
+
+
 
 }
