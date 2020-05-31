@@ -8,6 +8,7 @@ public class Muestra {
 	
 	private Usuario user;
 	private BufferedImage fotoDelInsecto;
+	private Ubicacion ubicacion;
 	private Calendar fechaCreada;
 	private Verificacion verificado;
 	private ArrayList<Opinion> listaDeOpiniones;
@@ -90,6 +91,14 @@ public class Muestra {
 		 		}
 		 	}
 		 return contador;
+	}
+
+	public Ubicacion getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(Ubicacion ubicacion) {
+		this.ubicacion = ubicacion;
 	}
 
 
