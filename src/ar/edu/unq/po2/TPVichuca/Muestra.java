@@ -89,7 +89,7 @@ public class Muestra {
 		return contador;
 	}
 	
-	public Integer cantidadDeVecesEL(Usuario user) {
+	public Integer cantidadDeVecesApareceEl(Usuario user) {
 		Integer contador = 0;
 			for(Opinion opinion : listaDeOpiniones) {
 				if(user == opinion.getUser()) {

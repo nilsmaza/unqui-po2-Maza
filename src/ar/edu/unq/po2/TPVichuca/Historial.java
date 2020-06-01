@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Historial {
 	
 	private ArrayList<Muestra> listaDeMuestras;
-	private EvaluadorDeConocimiento Evaluador = new  EvaluadorDeConocimiento();
+	private EvaluadorDeConocimiento evaluador = new  EvaluadorDeConocimiento();
 
 	public Historial(ArrayList<Muestra> listaDeMuestras) {
 		super();
@@ -13,11 +13,11 @@ public class Historial {
 	}
 	
 	public EvaluadorDeConocimiento getEvaluador() {
-		return Evaluador;
+		return evaluador;
 	}
 
-	public void setEvaluador(EvaluadorDeConocimiento evaluador) {
-		Evaluador = evaluador;
+	public void setEvaluador(EvaluadorDeConocimiento evalu) {
+		evaluador = evalu;
 	}
 	public ArrayList<Muestra> getListaDeMuestras() {
 		return listaDeMuestras;
@@ -38,7 +38,7 @@ public class Historial {
 	public boolean primeraVesQueParticipa(Usuario user) {
 		boolean participo = true;
 			for(Muestra muestraActual : this.listaDeMuestras) {
-				if(muestraActual.getUser() == user || muestraActual.cantidadDeVecesEL(user) > 0 ) {
+				if(muestraActual.getUser() == user || muestraActual.cantidadDeVecesApareceEl(user) > 0 ) {
 					participo = false;
 				}
 			}
