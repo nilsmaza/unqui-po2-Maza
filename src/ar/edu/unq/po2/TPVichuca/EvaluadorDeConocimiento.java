@@ -106,4 +106,6 @@ public class EvaluadorDeConocimiento {
 		return historial.opinionesDe(user).size();
 	}
 	
+	
+	
 }
