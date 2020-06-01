@@ -11,8 +11,34 @@ public class Muestra {
 	private Ubicacion ubicacion;
 	private Calendar fechaCreada;
 	private Verificacion verificado;
-	private ArrayList<Opinion> listaDeOpiniones;
+	private ArrayList<Opinion> listaDeOpiniones = new ArrayList<Opinion>();
 	
+	
+	
+	public Muestra(Usuario user, BufferedImage fotoDelInsecto, Ubicacion ubicacion,Opinion opinion) {
+		super();
+		this.user = user;
+		this.fotoDelInsecto = fotoDelInsecto;
+		this.ubicacion = ubicacion;
+		this.fechaCreada = Calendar.getInstance();;
+		this.listaDeOpiniones.add(opinion);
+	}
+
+	public Ubicacion getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(Ubicacion ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	public BufferedImage getFotoDelInsecto() {
+		return fotoDelInsecto;
+	}
+
+	public void setFotoDelInsecto(BufferedImage fotoDelInsecto) {
+		this.fotoDelInsecto = fotoDelInsecto;
+	}
 
 	public Usuario getUser() {
 		return user;
@@ -92,15 +118,5 @@ public class Muestra {
 		 	}
 		 return contador;
 	}
-
-	public Ubicacion getUbicacion() {
-		return ubicacion;
-	}
-
-	public void setUbicacion(Ubicacion ubicacion) {
-		this.ubicacion = ubicacion;
-	}
-
-
 
 }

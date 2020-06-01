@@ -28,6 +28,13 @@ public class Historial {
 		listaDeMuestras.add(muestra);
 	}
 	
+	public void agregarConocimientoAParticipanteNuevo(Usuario user) {
+		ConocimientoBasico basico = new ConocimientoBasico();
+			if(this.primeraVesQueParticipa(user)) {
+				user.setConocimiento(basico);
+			}
+	}
+	
 	public boolean primeraVesQueParticipa(Usuario user) {
 		boolean participo = true;
 			for(Muestra muestraActual : this.listaDeMuestras) {
@@ -55,14 +62,5 @@ public class Historial {
 			}
 		return listaDeMuestrasDe;
 	}
-	
-	public void agregarConocimientoAParticipanteNuevo(Usuario user) {
-		ConocimientoBasico basico = new ConocimientoBasico();
-			if(this.primeraVesQueParticipa(user)) {
-				user.setConocimiento(basico);
-			}
-	}
-
-	
 
 }

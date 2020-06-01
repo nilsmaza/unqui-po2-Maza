@@ -5,11 +5,13 @@ import java.util.Calendar;
 public class Opinion {
 
 	private Usuario user;
-	private Calendar fechaEnviada;
+	private Calendar fechaEnviada = Calendar.getInstance();
+	private IClasificacion respuesta;
 
-	public Opinion(Usuario user) {
+	public Opinion(Usuario user, IClasificacion respuesta) {
 		super();
 		this.user = user;
+		this.setRespuesta(respuesta);
 	}
 	
 	public Calendar getFechaEnviada() {
@@ -28,8 +30,16 @@ public class Opinion {
 		this.user = user;
 	}
 	
-	public String nombreDelInsecto(){ // verificar
-		return "";
+	public IClasificacion getRespuesta() {
+		return respuesta;
+	}
+
+	public void setRespuesta(IClasificacion respuesta) {
+		this.respuesta = respuesta;
 	}
 	
+	public String nombreDelInsecto(){ 
+		return this.getRespuesta().nombreDelInsectoORespuesta();
+	}
+
 }

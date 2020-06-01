@@ -22,7 +22,7 @@ public class VerificacionExperto extends Verificacion{
 	
 	public Opinion opinionActual(Muestra muestra) {
 		Integer contadorDeRespuestas = 0;
-		Opinion opinionActual = null;
+		Opinion opinionActual = new Opinion(muestra.getUser(),new RespuestaNoDefinida());
 			for(Opinion opinion : this.OpinionesDeUsuarios(muestra) ){
 				if(contadorDeRespuestas < muestra.cantidadDeVecesQueApareceLa(opinion)) {
 					contadorDeRespuestas = muestra.cantidadDeVecesQueApareceLa(opinion);
