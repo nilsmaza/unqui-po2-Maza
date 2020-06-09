@@ -2,22 +2,21 @@ package ar.edu.unq.po2.TPVichuca;
 
 public class Usuario {
 	
-	private Integer idUser;
+	private int idUser;
 	private Ubicacion ubicacion;
 	private IConocimiento conocimiento;
 	
-	public Usuario(Integer idUser, Ubicacion ubicacion, IConocimiento conocimiento) {
+	public Usuario(int idUser, Ubicacion ubicacion) {
 		super();
 		this.idUser = idUser;
 		this.ubicacion = ubicacion;
-		this.conocimiento = conocimiento;
 	}
-	
-	public Integer getIdUser() {
+
+	public int getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(Integer idUser) {
+	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
 
@@ -31,6 +30,10 @@ public class Usuario {
 
 	public IConocimiento getConocimiento() {
 		return conocimiento;
+	}
+	
+	public String tipoDeConocimiento() {
+		return conocimiento.getTipoDeConocimiento();
 	}
 
 	public void setConocimiento(IConocimiento conocimiento) {
@@ -46,7 +49,7 @@ public class Usuario {
 	}
 	
 	public void recibirEvaluacionDeConocimiento(Historial historial,Usuario user) {
-		historial.getEvaluador().cambiarConocimiento(historial, this);
+		historial.getEvaluador().reCalificacionDe(this, historial);
 	}
 
 }

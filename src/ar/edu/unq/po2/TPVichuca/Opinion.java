@@ -1,24 +1,27 @@
 package ar.edu.unq.po2.TPVichuca;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+
 
 public class Opinion {
 
 	private Usuario user;
-	private Calendar fechaEnviada = Calendar.getInstance();
+	private LocalDate fechaEnviada = LocalDate.now();
 	private IClasificacion respuesta;
+	private String hechoPorUn;
 
 	public Opinion(Usuario user, IClasificacion respuesta) {
 		super();
 		this.user = user;
 		this.setRespuesta(respuesta);
+//		this.settipoDeConocimientoAlaHoraDeOpinar(user.getConocimiento().getTipoDeConocimiento());
 	}
 	
-	public Calendar getFechaEnviada() {
+	public LocalDate getFechaEnviada() {
 		return fechaEnviada;
 	}
 
-	public void setFechaEnviada(Calendar fechaEnviada) {
+	public void setFechaEnviada(LocalDate fechaEnviada) {
 		this.fechaEnviada = fechaEnviada;
 	}
 
@@ -36,6 +39,13 @@ public class Opinion {
 
 	public void setRespuesta(IClasificacion respuesta) {
 		this.respuesta = respuesta;
+	}
+	
+	public String tipoDeConocimientoAlaHoraDeOpinar() {
+		return hechoPorUn;
+	}
+	public void settipoDeConocimientoAlaHoraDeOpinar(String tipoDeConocimiento) {
+		this.hechoPorUn = tipoDeConocimiento;
 	}
 	
 	public String nombreDelInsecto(){ 

@@ -1,15 +1,15 @@
 package ar.edu.unq.po2.TPVichuca;
 
 import java.awt.image.BufferedImage;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Muestra {
 	
 	private Usuario user;
 	private BufferedImage fotoDelInsecto;
 	private Ubicacion ubicacion;
-	private Calendar fechaCreada;
+	private LocalDate fechaCreada;
 	private Verificacion verificado;
 	private ArrayList<Opinion> listaDeOpiniones = new ArrayList<Opinion>();
 	
@@ -20,8 +20,9 @@ public class Muestra {
 		this.user = user;
 		this.fotoDelInsecto = fotoDelInsecto;
 		this.ubicacion = ubicacion;
-		this.fechaCreada = Calendar.getInstance();;
+		this.fechaCreada = LocalDate.now();
 		this.listaDeOpiniones.add(opinion);
+		this.verificado = new VerificacionBasica();
 	}
 
 	public Ubicacion getUbicacion() {
@@ -48,11 +49,11 @@ public class Muestra {
 		return listaDeOpiniones;
 	}
 	
-	public Calendar getFechaCreada() {
+	public LocalDate getFechaCreada() {
 		return fechaCreada;
 	}
 
-	public void setFechaCreada(Calendar fechaCreada) {
+	public void setFechaCreada(LocalDate fechaCreada) {
 		this.fechaCreada = fechaCreada;
 	}
 	public Verificacion getVerificado() {
@@ -66,21 +67,9 @@ public class Muestra {
 	public Opinion opinionActual() {
 		return this.getVerificado().opinionActual(this);
 	}
-	
-/*	public Opinion opinionActual() {
-		Integer contadorDeRespuestas = 0;
-		Opinion opinionActual = null;
-			for(Opinion opinion : this.getOpiniones() ){
-				if(contadorDeRespuestas < this.cantidadDeVecesQueApareceLa(opinion)) {
-					contadorDeRespuestas = this.cantidadDeVecesQueApareceLa(opinion);
-					opinionActual = opinion;
-				}
-			}
-	return opinionActual;
-	}
-*/	
-	public Integer cantidadDeVecesQueApareceLa(Opinion opinion) {
-		Integer contador = 0;
+
+	public int cantidadDeVecesQueApareceLa(Opinion opinion) {
+		int contador = 0;
 			for(Opinion opinionActual : listaDeOpiniones) {
 				if(opinionActual.nombreDelInsecto() == opinion.nombreDelInsecto()) {
 					contador += 1;
@@ -89,10 +78,10 @@ public class Muestra {
 		return contador;
 	}
 	
-	public Integer cantidadDeVecesApareceEl(Usuario user) {
-		Integer contador = 0;
+	public int cantidadDeVecesApareceEl(Usuario user) {
+		int contador = 0;
 			for(Opinion opinion : listaDeOpiniones) {
-				if(user == opinion.getUser()) {
+				if(user.getIdUser() == opinion.getUser().getIdUser()) {
 					contador += 1;
 				}
 			}
@@ -109,14 +98,29 @@ public class Muestra {
 		 return OpinionesDe ;
 	}
 	
-	public Integer cantidadDeExpertosQueOpinaron(){
-		Integer contador = 0;
+	public int cantidadDeExpertosQueOpinaron(){
+		int contador = 0;
 		 	for(Opinion respueta : this.getOpiniones()){
-		 		if(respueta.getUser().getConocimiento().getTipoDeConocimiento() == "Experto") {
+		 		if(respueta.tipoDeConocimientoAlaHoraDeOpinar() == "Experto") {
 		 			contador += 1;
 		 		}
 		 	}
 		 return contador;
+	}
+	
+	public void cambiarVerificacion() {
+		this.getVerificado().cambiarTipoDeVerificacion(this);
+	}
+	
+	public boolean muestraVerificada() {
+		return this.getVerificado().isVerificado();
+	}
+	
+	public void opinarSobreLaMuestra(Opinion opinion) {
+		if(this.getVerificado().puedeOpinarSobreLa(opinion.getUser(), this)) {
+			this.getOpiniones().add(opinion);
+			this.cambiarVerificacion();
+		}
 	}
 
 }

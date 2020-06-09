@@ -3,12 +3,11 @@ package ar.edu.unq.po2.TPVichuca;
 public class Conocimiento implements IConocimiento {
 	
 	private String tipoDeConocimiento;
-	private Verificacion tipoDeVerificacion;
+	protected Verificacion tipoDeVerificacion;
 	
-	public Conocimiento(String tipoDeConocimiento,Verificacion tipoDeVerificacion ) {
+	public Conocimiento(String tipoDeConocimiento) {
 		super();
 		this.tipoDeConocimiento = tipoDeConocimiento;
-		this.tipoDeVerificacion = tipoDeVerificacion;
 	}
 
 	public Verificacion getTipoDeVerificacion() {
@@ -34,8 +33,8 @@ public class Conocimiento implements IConocimiento {
 	
 	public boolean muestraNoValoradaPor(Usuario user, Muestra muestra) {
 		boolean noVerificado = true;
-			for(Opinion muestraActual : muestra.getOpiniones()) {
-				if(muestraActual.getUser() == user) {
+			for(Opinion opinionActual : muestra.getOpiniones()) {
+				if(opinionActual.getUser() == user) {
 					noVerificado = false;
 				}
 			}

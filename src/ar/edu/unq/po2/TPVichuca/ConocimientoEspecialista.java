@@ -3,10 +3,10 @@ package ar.edu.unq.po2.TPVichuca;
 public class ConocimientoEspecialista extends Conocimiento {
 	
 	private static final String tipoDeConocimiento = "Especialista";
-	private static final Verificacion tipoDeVerificacion = new VerificacionExperto(false);
 
 	public ConocimientoEspecialista() {
-		super(tipoDeConocimiento,tipoDeVerificacion);
+		super(tipoDeConocimiento);
+		this.tipoDeVerificacion = new VerificacionExperto();
 	}
 	
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion) {

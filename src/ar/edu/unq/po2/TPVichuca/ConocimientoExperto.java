@@ -3,15 +3,16 @@ package ar.edu.unq.po2.TPVichuca;
 public class ConocimientoExperto extends Conocimiento{
 
 	private static final String tipoDeConocimiento = "Experto";
-	private static final Verificacion tipoDeVerificacion = new VerificacionExperto(false);
 	
 	public ConocimientoExperto() {
-		super(tipoDeConocimiento,tipoDeVerificacion);
+		super(tipoDeConocimiento);
+		this.tipoDeVerificacion = new VerificacionExperto();
 	}
 	
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion) {
-		if(this.getTipoDeVerificacion().puedeOpinarSobreLa(muestra) && this.muestraActaParaValorar(user, muestra)) {
-			muestra.getOpiniones().add(opinion);
+		if(this.getTipoDeVerificacion().puedeOpinarSobreLa(user,muestra) 
+				&& this.muestraActaParaValorar(user, muestra)) {
+					muestra.getOpiniones().add(opinion);
 		}
 	}
 /*	

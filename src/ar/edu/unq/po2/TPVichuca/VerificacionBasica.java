@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 public class VerificacionBasica extends Verificacion{
 	
-
-	public VerificacionBasica(boolean valorDeVerdad) {
-		super(valorDeVerdad);
+	public VerificacionBasica() {
+		super();
 	}
 
 	public ArrayList<Opinion> OpinionesDeUsuarios(Muestra muestra){
 		 ArrayList<Opinion> opiniones = new  ArrayList<Opinion>();
 		 	for(Opinion respueta : muestra.getOpiniones()){
-		 		if(respueta.getUser().getConocimiento().getTipoDeConocimiento() == "Basico") {
+		 		if(respueta.getUser().tipoDeConocimiento() == "Basico") {
 		 			opiniones.add(respueta);
 		 		}
 		 	}
@@ -20,8 +19,9 @@ public class VerificacionBasica extends Verificacion{
 	}
 	
 	public Opinion opinionActual(Muestra muestra) {
-		Integer contadorDeRespuestas = 0;
-		Opinion opinionActual = null;
+		int contadorDeRespuestas = 1;
+		RespuestaNoDefinida respuesta = new RespuestaNoDefinida();
+		Opinion opinionActual = new Opinion(muestra.getUser(),respuesta);
 			for(Opinion opinion : this.OpinionesDeUsuarios(muestra) ){
 				if(contadorDeRespuestas < muestra.cantidadDeVecesQueApareceLa(opinion)) {
 					contadorDeRespuestas = muestra.cantidadDeVecesQueApareceLa(opinion);
@@ -31,13 +31,15 @@ public class VerificacionBasica extends Verificacion{
 	return opinionActual;
 	}
 	
-	public boolean puedeOpinarSobreLa(Muestra muestra){
-		return muestra.cantidadDeExpertosQueOpinaron() > 1 && !muestra.getVerificado().isVerificado();
+	public boolean puedeOpinarSobreLa(Usuario user,Muestra muestra){
+		return muestra.cantidadDeExpertosQueOpinaron() < 2 
+				&& !muestra.muestraVerificada()
+				&& muestra.cantidadDeVecesApareceEl(user) == 0;
 	}
 
 	@Override
 	public void verificar(Muestra muestra) {
-		muestra.setVerificado(new VerificacionBasica(false));
+		muestra.setVerificado(new VerificacionBasica());
 		
 	}
 

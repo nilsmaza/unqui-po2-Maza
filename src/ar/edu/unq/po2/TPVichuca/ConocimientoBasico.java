@@ -5,14 +5,14 @@ public class ConocimientoBasico extends Conocimiento {
 	
 	
 	private static final String tipoDeConocimiento = "Basico";
-	private static final Verificacion tipoDeVerificacion = new VerificacionBasica(false);
 
 	public ConocimientoBasico() {
-		super(tipoDeConocimiento,tipoDeVerificacion);
+		super(tipoDeConocimiento);
+		this.tipoDeVerificacion = new VerificacionBasica();
 	}
 
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion) {
-		if(this.getTipoDeVerificacion().puedeOpinarSobreLa(muestra) && this.muestraActaParaValorar(user, muestra)) {
+		if(this.getTipoDeVerificacion().puedeOpinarSobreLa(user,muestra) && this.muestraActaParaValorar(user, muestra)) {
 			muestra.getOpiniones().add(opinion);
 		}
 	}

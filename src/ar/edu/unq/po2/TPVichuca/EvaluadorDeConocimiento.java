@@ -1,5 +1,5 @@
 package ar.edu.unq.po2.TPVichuca;
-
+/*
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -109,3 +109,4 @@ public class EvaluadorDeConocimiento {
 	
 	
 }
+*/
