@@ -112,7 +112,7 @@ public class Muestra {
 		this.getVerificado().cambiarTipoDeVerificacion(this);
 	}
 	
-	public boolean muestraVerificada() {
+	public boolean isMuestraVerificada() {
 		return this.getVerificado().isVerificado();
 	}
 	
@@ -121,6 +121,10 @@ public class Muestra {
 			this.getOpiniones().add(opinion);
 			this.cambiarVerificacion();
 		}
+	}
+	
+	public void verificarMuestra() {
+		this.getVerificado().verificar(this);
 	}
 
 }

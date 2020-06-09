@@ -16,8 +16,6 @@ class VerificacionTest {
 	private Muestra muestra1;
 	private Muestra muestra2;
 	private Muestra muestra3;
-	private ConocimientoBasico basico;
-	private ConocimientoExperto experto;
 	private VerificacionBasica verBasica;
 	private VerificacionExperto verExperto;
 	
@@ -41,9 +39,9 @@ class VerificacionTest {
 	@Test
 	void testVerificacion() {
 		
-		assertFalse(muestra1.muestraVerificada());
-		assertFalse(muestra2.muestraVerificada());
-		assertFalse(muestra3.muestraVerificada());
+		assertFalse(muestra1.isMuestraVerificada());
+		assertFalse(muestra2.isMuestraVerificada());
+		assertFalse(muestra3.isMuestraVerificada());
 		
 	}
 	
@@ -240,7 +238,6 @@ class VerificacionTest {
 		when(user1.tipoDeConocimiento()).thenReturn("Experto");
 		when(user2.tipoDeConocimiento()).thenReturn("Basico");
 		when(user3.tipoDeConocimiento()).thenReturn("Experto");
-		
 		when(opinion1.getUser()).thenReturn(user1);
 		when(opinion2.getUser()).thenReturn(user2);
 		when(opinion3.getUser()).thenReturn(user3);
@@ -262,6 +259,14 @@ class VerificacionTest {
 		when(user2.tipoDeConocimiento()).thenReturn("Basico");
 		when(user3.tipoDeConocimiento()).thenReturn("Experto");
 		
+		when(opinion1.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
+		when(opinion2.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Basico");
+		when(opinion3.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
+		
+		when(opinion1.nombreDelInsecto()).thenReturn("Vichuca");
+		when(opinion2.nombreDelInsecto()).thenReturn("NoVichuca");
+		when(opinion3.nombreDelInsecto()).thenReturn("Vichuca");
+		
 		when(opinion1.getUser()).thenReturn(user1);
 		when(opinion2.getUser()).thenReturn(user2);
 		when(opinion3.getUser()).thenReturn(user3);
@@ -270,9 +275,14 @@ class VerificacionTest {
 		muestra1.getOpiniones().add(opinion2);
 		muestra1.getOpiniones().add(opinion3);
 		
-		muestra1.
+		assertEquals(2,muestra1.cantidadDeExpertosQueOpinaron());
+		assertFalse(muestra1.isMuestraVerificada());
 		
+		assertEquals("Vichuca",verExperto.opinionActual(muestra1).nombreDelInsecto());
+		assertTrue(verExperto.masDe2votoPorUnaOpinion(muestra1));
+		
+		verExperto.verificar(muestra1);
+		assertTrue(muestra1.isMuestraVerificada());
 	}
-
 
 }

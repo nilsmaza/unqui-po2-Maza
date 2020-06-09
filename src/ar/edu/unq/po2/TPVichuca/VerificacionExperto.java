@@ -32,16 +32,14 @@ public class VerificacionExperto extends Verificacion{
 	}
 
 	public boolean puedeOpinarSobreLa(Usuario user , Muestra muestra) {
-		return  !muestra.muestraVerificada() && 
+		return  !muestra.isMuestraVerificada() && 
 				muestra.cantidadDeVecesApareceEl(user) == 0
 				&& user.tipoDeConocimiento() == "Experto";
 	}
 	
 	public void verificar(Muestra muestra) {
-		VerificacionExperto experto = new VerificacionExperto();
-		experto.setVerificado(true);
 		 if(this.masDe2votoPorUnaOpinion(muestra)) {
-			 muestra.setVerificado(experto);
+			 muestra.getVerificado().setVerificado(true);
 		 }
 	}
 	
@@ -49,11 +47,11 @@ public class VerificacionExperto extends Verificacion{
 		Opinion opinionActual = this.opinionActual(muestra);
 		int contador = 0;
 			for(Opinion opinion : this.OpinionesDeUsuarios(muestra)) {
-				if(opinionActual == opinion) {
+				if(opinionActual.nombreDelInsecto() == opinion.nombreDelInsecto()) {
 					contador += 1;
 				}
 			}
-		return contador >= 2;
+		return contador > 1;
 	}
 
 }

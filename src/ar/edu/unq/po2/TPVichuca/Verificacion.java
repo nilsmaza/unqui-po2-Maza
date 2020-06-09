@@ -20,11 +20,11 @@ public abstract class Verificacion {
 	
 	public void cambiarTipoDeVerificacion(Muestra muestra) {
 		VerificacionExperto experto = new VerificacionExperto();
-		if(muestra.cantidadDeExpertosQueOpinaron() >= 2) {
+		if(muestra.cantidadDeExpertosQueOpinaron() > 1 ) {
 			muestra.setVerificado(experto);
 		}
 	}
-
+	
 	public abstract void verificar(Muestra muestra);
 	public abstract ArrayList<Opinion> OpinionesDeUsuarios(Muestra muestra);
 	public abstract boolean puedeOpinarSobreLa(Usuario user ,Muestra muestra);

@@ -33,14 +33,15 @@ public class VerificacionBasica extends Verificacion{
 	
 	public boolean puedeOpinarSobreLa(Usuario user,Muestra muestra){
 		return muestra.cantidadDeExpertosQueOpinaron() < 2 
-				&& !muestra.muestraVerificada()
+				&& !muestra.isMuestraVerificada()
 				&& muestra.cantidadDeVecesApareceEl(user) == 0;
 	}
 
 	@Override
 	public void verificar(Muestra muestra) {
-		muestra.setVerificado(new VerificacionBasica());
+		muestra.getVerificado().setVerificado(false);
 		
 	}
+
 
 }
