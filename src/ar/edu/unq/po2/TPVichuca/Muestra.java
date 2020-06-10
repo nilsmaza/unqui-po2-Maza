@@ -88,14 +88,14 @@ public class Muestra {
 		return contador;
 	}
 	
-	public ArrayList<Opinion> listaDeOpinionesDe(Usuario user){
-		ArrayList<Opinion> OpinionesDe = new ArrayList<Opinion>();
-		 	for(Opinion respueta : this.getOpiniones()){
-		 		if(respueta.getUser() == user) {
-		 			OpinionesDe.add(respueta);
-		 		}
+	public Opinion OpinionDe(Usuario user){
+		Opinion respuestaActual = null;
+		 	for(Opinion respuesta : this.getOpiniones()){
+		 		if(respuesta.getUser().getIdUser() == user.getIdUser()) {
+					respuestaActual = respuesta;
+	 				}
 		 	}
-		 return OpinionesDe ;
+		 return respuestaActual;
 	}
 	
 	public int cantidadDeExpertosQueOpinaron(){
@@ -114,13 +114,6 @@ public class Muestra {
 	
 	public boolean isMuestraVerificada() {
 		return this.getVerificado().isVerificado();
-	}
-	
-	public void opinarSobreLaMuestra(Opinion opinion) {
-		if(this.getVerificado().puedeOpinarSobreLa(opinion.getUser(), this)) {
-			this.getOpiniones().add(opinion);
-			this.cambiarVerificacion();
-		}
 	}
 	
 	public void verificarMuestra() {

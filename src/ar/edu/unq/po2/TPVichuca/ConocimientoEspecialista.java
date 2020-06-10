@@ -1,12 +1,9 @@
 package ar.edu.unq.po2.TPVichuca;
 
-public class ConocimientoEspecialista extends Conocimiento {
+public class ConocimientoEspecialista extends ConocimientoExperto {
 	
-	private static final String tipoDeConocimiento = "Especialista";
-
 	public ConocimientoEspecialista() {
-		super(tipoDeConocimiento);
-		this.tipoDeVerificacion = new VerificacionExperto();
+		super();
 	}
 	
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion) {

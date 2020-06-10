@@ -8,12 +8,12 @@ public class ConocimientoBasico extends Conocimiento {
 
 	public ConocimientoBasico() {
 		super(tipoDeConocimiento);
-		this.tipoDeVerificacion = new VerificacionBasica();
 	}
 
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion) {
-		if(this.getTipoDeVerificacion().puedeOpinarSobreLa(user,muestra) && this.muestraActaParaValorar(user, muestra)) {
-			muestra.getOpiniones().add(opinion);
+		if(muestra.getVerificado().puedeOpinarSobreLa(user,muestra)
+			&& this.muestraActaParaValorar(user, muestra)) {
+				muestra.getOpiniones().add(opinion);
 		}
 	}
 	

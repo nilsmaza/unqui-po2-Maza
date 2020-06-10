@@ -7,19 +7,20 @@ import java.util.ArrayList;
 public class Historial {
 	
 	private ArrayList<Muestra> listaDeMuestras = new ArrayList<Muestra>();
-	private EvaluadorDeConocimiento2 evaluador = new  EvaluadorDeConocimiento2();
+//	private EvaluadorDeConocimiento2 evaluador = new  EvaluadorDeConocimiento2();
 
 	public Historial() {
 		super();
 	}
 	
-	public EvaluadorDeConocimiento2 getEvaluador() {
-		return evaluador;
-	}
+//	public EvaluadorDeConocimiento2 getEvaluador() {
+//		return evaluador;
+//	}
 
-	public void setEvaluador(EvaluadorDeConocimiento2 evalu) {
-		evaluador = evalu;
-	}
+//	public void setEvaluador(EvaluadorDeConocimiento2 evalu) {
+//		evaluador = evalu;
+//	}
+	
 	public ArrayList<Muestra> getListaDeMuestras() {
 		return listaDeMuestras;
 	}
