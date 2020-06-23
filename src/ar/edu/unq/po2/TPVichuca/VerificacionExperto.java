@@ -2,7 +2,9 @@ package ar.edu.unq.po2.TPVichuca;
 
 import java.util.ArrayList;
 
-public class VerificacionExperto extends Verificacion{
+public class VerificacionExperto {
+	
+	private String verTipo = "Experto";
 	
 	public VerificacionExperto() {
 		super();
@@ -39,7 +41,7 @@ public class VerificacionExperto extends Verificacion{
 	
 	public void verificar(Muestra muestra) {
 		 if(this.masDe2votoPorUnaOpinion(muestra)) {
-			 muestra.getVerificado().setVerificado(true);
+			 muestra.getVerificado().setVerificado("Verificada");
 		 }
 	}
 	
@@ -53,5 +55,14 @@ public class VerificacionExperto extends Verificacion{
 			}
 		return contador > 1;
 	}
+
+	public String getVerTipo() {
+		return verTipo;
+	}
+
+	public void setVerTipo(String verTipo) {
+		this.verTipo = verTipo;
+	}
+
 
 }

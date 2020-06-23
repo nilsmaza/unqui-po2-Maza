@@ -10,7 +10,7 @@ public class Muestra {
 	private BufferedImage fotoDelInsecto;
 	private Ubicacion ubicacion;
 	private LocalDate fechaCreada;
-	private Verificacion verificado;
+	private Verificacion verificado = new Verificacion();
 	private ArrayList<Opinion> listaDeOpiniones = new ArrayList<Opinion>();
 	
 	
@@ -22,7 +22,6 @@ public class Muestra {
 		this.ubicacion = ubicacion;
 		this.fechaCreada = LocalDate.now();
 		this.listaDeOpiniones.add(opinion);
-		this.verificado = new VerificacionBasica();
 	}
 
 	public Ubicacion getUbicacion() {
@@ -108,16 +107,32 @@ public class Muestra {
 		 return contador;
 	}
 	
-	public void cambiarVerificacion() {
-		this.getVerificado().cambiarTipoDeVerificacion(this);
+	public int cantidadDeBasicosQueOpinaron(){
+		int contador = 0;
+		 	for(Opinion respueta : this.getOpiniones()){
+		 		if(respueta.tipoDeConocimientoAlaHoraDeOpinar() == "Basico") {
+		 			contador += 1;
+		 		}
+		 	}
+		 return contador;
+	}
+	
+	public boolean opinaronExpertos() {
+		return  this.getOpiniones().stream().anyMatch
+				(opinion -> opinion.tipoDeConocimientoAlaHoraDeOpinar() == "Experto");
+	}
+	
+	public boolean opinaronTodosBasicos() {
+		return  this.getOpiniones().stream().allMatch
+				(opinion -> opinion.tipoDeConocimientoAlaHoraDeOpinar() == "Basico");
+	}
+	
+	public void cambiarEstadoVerificacion() {
+		this.getVerificado().verificar(this);
 	}
 	
 	public boolean isMuestraVerificada() {
-		return this.getVerificado().isVerificado();
+		return this.getVerificado().muestraYaVerificada();
 	}
 	
-	public void verificarMuestra() {
-		this.getVerificado().verificar(this);
-	}
-
 }

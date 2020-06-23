@@ -60,7 +60,7 @@ public class Historial {
 	public ArrayList<Opinion> opinionesDe(Usuario user){
 		ArrayList<Opinion> listaDeMuestrasDe = new ArrayList<Opinion>();
 			for(Muestra muestraActual : this.listaDeMuestras) {
-				listaDeMuestrasDe.addAll(muestraActual.listaDeOpinionesDe(user));
+				listaDeMuestrasDe.add(muestraActual.OpinionDe(user));
 			}
 		return listaDeMuestrasDe;
 	}

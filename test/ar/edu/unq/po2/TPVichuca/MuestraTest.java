@@ -20,7 +20,6 @@ class MuestraTest {
 	private BufferedImage foto;
 	private IClasificacion respuesta1;
 	private IClasificacion respuesta2;
-	private VerificacionBasica verificacion;
 	private Opinion otraOpinion1;
 	private Opinion otraOpinion2;
 
@@ -33,7 +32,6 @@ class MuestraTest {
 		opinionUser = mock(Opinion.class);
 		foto = mock(BufferedImage.class);
 		respuesta1 = mock(IClasificacion.class); 	
-		verificacion = new VerificacionBasica();
 		otraOpinion1 = mock(Opinion.class);
 		otraOpinion2 = mock(Opinion.class);
 		respuesta2 = mock(IClasificacion.class);
@@ -43,7 +41,7 @@ class MuestraTest {
 	@Test
 	public void testMuestra() {
 		
-		muestra1.setVerificado(verificacion);
+	//	muestra1.setVerificado(verificacion);
 		assertFalse(muestra1.getOpiniones().isEmpty());
 		
 		when(respuesta1.nombreDelInsectoORespuesta()).thenReturn("Chince Foliada");
@@ -62,7 +60,6 @@ class MuestraTest {
 			
 		assertEquals(muestra1.cantidadDeVecesQueApareceLa(opinionUser),1);
 		assertEquals(muestra1.cantidadDeVecesApareceEl(user),1);
-	//	assertFalse(muestra1.listaDeOpinionesDe(user).isEmpty());
 		
 		when(otraOpinion1.getRespuesta()).thenReturn(respuesta1);
 		when(otraOpinion2.getRespuesta()).thenReturn(respuesta2);
@@ -103,12 +100,45 @@ class MuestraTest {
 			when(otraOpinion1.getUser()).thenReturn(user2);
 			when(otraOpinion1.nombreDelInsecto()).thenReturn("Vichuca");
 			
-			muestra1 = new Muestra(user2, foto, lugar , otraOpinion1);
+			muestra1 = new Muestra(user2, null, null , otraOpinion1);
 			
 			assertEquals(otraOpinion1,muestra1.OpinionDe(user2));
 			assertEquals(null,muestra1.OpinionDe(user));
 			
 		}
+		
+		@Test
+		public void testExpertoOpinaron() {
+			
+			when(otraOpinion1.getUser()).thenReturn(user2);
+			when(otraOpinion1.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Basico");
+			when(opinionUser.getUser()).thenReturn(user);
+			when(opinionUser.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
+			
+			muestra1 = new Muestra(user2, null, null, otraOpinion1);
+			
+			muestra1.getOpiniones().add(opinionUser);
+			assertEquals(2,muestra1.getOpiniones().size());
+			assertEquals(true,muestra1.opinaronExpertos());
+			
+		}
+		
+		@Test
+		public void testTodosBasicosOpinaron() {
+			
+			when(otraOpinion1.getUser()).thenReturn(user2);
+			when(otraOpinion1.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Basico");
+			when(opinionUser.getUser()).thenReturn(user);
+			when(opinionUser.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Basico");
+			
+			muestra1 = new Muestra(user2, null, null, otraOpinion1);
+			
+			muestra1.getOpiniones().add(opinionUser);
+			assertEquals(2,muestra1.getOpiniones().size());
+			assertEquals(true,muestra1.opinaronTodosBasicos());
+			
+		}
+		
 		
 
 }

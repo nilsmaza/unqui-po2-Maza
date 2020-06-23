@@ -16,9 +16,7 @@ public class ConocimientoTest {
 	private Muestra muestra1;
 	private Opinion opinion1;
 	private Opinion opinion2;
-	private VerificacionExperto verificacionExperto;
-	
-	
+
 	
 	@BeforeEach
 	public void setUp() {
@@ -31,10 +29,9 @@ public class ConocimientoTest {
 		concBasico = new ConocimientoBasico();
 		concExperto = new ConocimientoExperto();
 		concEspecialista = new ConocimientoEspecialista();
-		verificacionExperto = new VerificacionExperto();
 	}
 	
-/*	@Test
+	@Test
 	public void muestraNoValoradas(){
 		
 		
@@ -46,7 +43,7 @@ public class ConocimientoTest {
 		when(opinion1.getUser()).thenReturn(user2);
 		
 		muestra1 = new Muestra(user, null, null, opinion1);
-		
+/*		
 		assertTrue(concBasico.muestraNoValoradaPor(user, muestra1));
 		assertFalse(concBasico.muestraNoValoradaPor(user2, muestra1));
 		
@@ -56,9 +53,9 @@ public class ConocimientoTest {
 		assertTrue(concEspecialista.muestraNoValoradaPor(user, muestra1));
 		assertFalse(concEspecialista.muestraNoValoradaPor(user2, muestra1));
 		
-		
+*/		
 	}
-*/	
+	
 	@Test
 	public void muestrasAptasParaValorar(){
 		
@@ -99,7 +96,6 @@ public class ConocimientoTest {
 		
 		user.setConocimiento(concBasico);
 		muestra1 = new Muestra(user, null, null, opinion1);
-		muestra1.setVerificado(new VerificacionBasica() );
 		
 		assertEquals(1 ,muestra1.getOpiniones().size());
 		
@@ -120,7 +116,6 @@ public class ConocimientoTest {
 		
 		user.setConocimiento(concBasico);
 		muestra1 = new Muestra(user2, null, null, opinion1);
-		muestra1.setVerificado(verificacionExperto);
 		concExperto.valorarMuestra(user, muestra1, opinion2);
 		assertEquals(2 ,muestra1.getOpiniones().size());
 		
@@ -136,7 +131,6 @@ public class ConocimientoTest {
 		
 		user.setConocimiento(concBasico);
 		muestra1 = new Muestra(user2, null, null, opinion1);
-		muestra1.setVerificado(verificacionExperto);
 		concEspecialista.valorarMuestra(user, muestra1, opinion2);
 		assertEquals(2 ,muestra1.getOpiniones().size());
 		

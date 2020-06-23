@@ -2,7 +2,9 @@ package ar.edu.unq.po2.TPVichuca;
 
 import java.util.ArrayList;
 
-public class VerificacionBasica extends Verificacion{
+public class VerificacionBasica {
+	
+	private String verTipo = "Basico";
 	
 	public VerificacionBasica() {
 		super();
@@ -32,16 +34,26 @@ public class VerificacionBasica extends Verificacion{
 	}
 	
 	public boolean puedeOpinarSobreLa(Usuario user,Muestra muestra){
-		return muestra.cantidadDeExpertosQueOpinaron() < 2 
-				&& !muestra.isMuestraVerificada()
+		return !muestra.opinaronExpertos() && !muestra.isMuestraVerificada()
 				&& muestra.cantidadDeVecesApareceEl(user) == 0;
 	}
 
 	@Override
 	public void verificar(Muestra muestra) {
-		muestra.getVerificado().setVerificado(false);
-		
+		if(muestra.opinaronBasicos()) {
+		muestra.getVerificado().setVerificado("VerificadaParcialmente");
+		}
 	}
+
+	public String getVerTipo() {
+		return verTipo;
+	}
+
+	public void setVerTipo(String verTipo) {
+		this.verTipo = verTipo;
+	}
+
+	
 
 
 }

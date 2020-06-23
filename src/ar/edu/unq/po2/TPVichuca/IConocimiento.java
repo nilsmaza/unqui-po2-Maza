@@ -5,6 +5,4 @@ public interface IConocimiento {
 	public String getTipoDeConocimiento();
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion);
 	
-	
-
 }

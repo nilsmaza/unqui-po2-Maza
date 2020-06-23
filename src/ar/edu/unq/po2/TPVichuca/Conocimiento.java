@@ -21,7 +21,6 @@ public class Conocimiento implements IConocimiento {
 		return muestra.getUser().getIdUser() != user.getIdUser();
 	}	
 
-	@Override
 	public void valorarMuestra(Usuario user,Muestra muestra,Opinion opinion){}
 	
 }

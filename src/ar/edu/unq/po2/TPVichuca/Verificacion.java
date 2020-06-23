@@ -1,34 +1,33 @@
 package ar.edu.unq.po2.TPVichuca;
 
-import java.util.ArrayList;
-
-public abstract class Verificacion {
+public class Verificacion {
 	
-	private boolean verificado = false;
+	private Estado verificado = new NoVerificado();//NoVerificado
 	
 	public Verificacion() {
 		super();
 	}
 	
-	public boolean isVerificado() {
+	public Estado getVerificado() {
 		return verificado;
 	}
 
-	public void setVerificado(boolean verificado) {
+
+	public void setVerificado(Estado verificado) {
 		this.verificado = verificado;
 	}
+
 	
-	public void cambiarTipoDeVerificacion(Muestra muestra) {
-		VerificacionExperto experto = new VerificacionExperto();
-		if(muestra.cantidadDeExpertosQueOpinaron() > 1 ) {
-			muestra.setVerificado(experto);
-		}
+	public void verificar(Muestra muestra) {
+		this.getVerificado().verificar(muestra);
 	}
 	
-	public abstract void verificar(Muestra muestra);
-	public abstract ArrayList<Opinion> OpinionesDeUsuarios(Muestra muestra);
-	public abstract boolean puedeOpinarSobreLa(Usuario user ,Muestra muestra);
-	public abstract Opinion opinionActual(Muestra muestra);
-	
-	
+	public Opinion opinionActual(Muestra muestra) {
+		return this.getVerificado().opinionActual(muestra);
+	}
+
+	public boolean muestraYaVerificada() {
+		return this.getVerificado().yaEstaVerifacado();
+	}
+
 }
