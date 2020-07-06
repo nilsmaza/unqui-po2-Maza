@@ -57,6 +57,11 @@ public class Investigador implements IObserver{
 	public String getNombre() {
 		return nombre;
 	}
+	
+	public void subirArticulo(String titulo,String filiacion,String tipoDeArticulo,String lugarDePublicacion,String palabraClave) {
+		Articulo nuevoArticulo = new Articulo(titulo, this.getNombre(), filiacion, tipoDeArticulo, lugarDePublicacion, palabraClave);
+		this.getSistema().agregarArticulo(nuevoArticulo);
+	}
 
 	
 
