@@ -4,23 +4,20 @@ import java.util.ArrayList;
 
 public class CultivoMultiple extends Cultivo{
 	
-	private ArrayList<Cultivo> plantas ;
-	private Integer zonaDeCultivosDisponibles;
+	private ArrayList<Cultivo> plantas = new ArrayList<Cultivo>();
+	private int zonaDeCultivosDisponibles = 4;
 	
-	public CultivoMultiple(ArrayList<Cultivo> plantas, Integer zonaDeCultivosDisponibles) {
+	public CultivoMultiple() {
 		super();
-		this.plantas = new ArrayList<Cultivo>();
-		this.zonaDeCultivosDisponibles = 4;
 	}
 	
-	public Integer getZonaDeCultivosDisponibles() {
+	public int getZonaDeCultivosDisponibles() {
 		return zonaDeCultivosDisponibles;
 	}
 	public ArrayList<Cultivo> getPlantas() {
 		return plantas;
 	}
-
-	public void setZonaDeCultivosDisponibles(Integer zonaDeCultivosDisponibles) {
+	public void setZonaDeCultivosDisponibles(int zonaDeCultivosDisponibles) {
 		this.zonaDeCultivosDisponibles = zonaDeCultivosDisponibles;
 	}
 
@@ -31,14 +28,24 @@ public class CultivoMultiple extends Cultivo{
 		}
 	}
 	
+	public int costoDeEsteCultivo() {
+		int costo = 0;
+		for(Cultivo unaPlanta : this.getPlantas()) {
+			costo += unaPlanta.CostoDelCultivo() / 4;
+		}
+	return costo;
+	}
+	
 	@Override
-	public Integer CostoDelCultivo() {
-		Integer costo = 0;
+	public int CostoDelCultivo() {
+		int costo = 0;
 			for(Cultivo unaPlanta : this.getPlantas()) {
-				costo += unaPlanta.CostoDelCultivo() / 4;
+				costo += unaPlanta.costoDeEsteCultivo();
 			}
 		return costo;
 	}
+	
+	
 	
 
 }

@@ -1,15 +1,14 @@
 package ar.edu.unq.po2.tp3;
 
 import java.util.Calendar;
-import sun.util.calendar.BaseCalendar.Date;
 
 public class Persona {
 	
 	private String nombre;
 	private String apellido;
-	private Date fechaDeNacimiento; //año de nacimiento
+	private Calendar fechaDeNacimiento; //año de nacimiento
 	
-	public Persona(String nombre, String apellido , Date fechaDeNacimiento) {
+	public Persona(String nombre, String apellido , Calendar fechaDeNacimiento) {
 		super();
 		this.nombre = nombre;
 		this.fechaDeNacimiento = fechaDeNacimiento;
@@ -20,15 +19,7 @@ public class Persona {
 		return apellido;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public void setFechaDeNacimiento(Date fechaDeNacimiento) {
-		this.fechaDeNacimiento = fechaDeNacimiento;
-	}
-	
-	public Date getFechaDeNacimiento() {
+	public  Calendar getFechaDeNacimiento() {
 		return fechaDeNacimiento;
 	}
 
@@ -36,14 +27,9 @@ public class Persona {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	
 	public int calcularEdad() {
 			Calendar fechaActual = Calendar.getInstance(); 
-			int edad = fechaActual.get(Calendar.YEAR) - this.getFechaDeNacimiento().getYear();
+			int edad = fechaActual.get(Calendar.YEAR) - this.getFechaDeNacimiento().getWeekYear();
 		return edad;
 	}
 	

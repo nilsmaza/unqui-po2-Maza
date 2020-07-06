@@ -2,8 +2,11 @@ package ar.edu.unq.po2.tp5;
 
 public class SolicitudDeCreditoHipotecario extends SolicitudDeCredito {
 
+	private PropiedadInmobiliaria propiedad;
+	
 	public SolicitudDeCreditoHipotecario(Cliente cliente, double montoSolicitado, Integer plazoDeMeses,PropiedadInmobiliaria propiedad) {
 		super(cliente, montoSolicitado, plazoDeMeses);
+		this.propiedad = propiedad;
 	}
 	
 	public boolean chequeoDeAceptacion() {
@@ -28,7 +31,7 @@ public class SolicitudDeCreditoHipotecario extends SolicitudDeCredito {
 	 }
 	
 	public boolean chequeoDeValorFiscal() {
-		double valorDelCliente = super.getCliente().getPropiedad().porcentajeDelValorFiscal(70);
+		double valorDelCliente = this.getPropiedad().porcentajeDelValorFiscal(70);
 		double montoSolicitadoPorElCliente = super.getMontoSolicitado();
 		return valorDelCliente > montoSolicitadoPorElCliente;
 	}
@@ -37,5 +40,10 @@ public class SolicitudDeCreditoHipotecario extends SolicitudDeCredito {
 		double montoLimiteParaElCliente = super.getCliente().porcentajeDeSueldoMensual(50);
 		return montoLimiteParaElCliente >= super.getMontoSolicitado();
 	}
+
+	public PropiedadInmobiliaria getPropiedad() {
+		return propiedad;
+	}
+
 
 }

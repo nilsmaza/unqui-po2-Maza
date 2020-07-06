@@ -25,16 +25,8 @@ public class PropiedadInmobiliaria {
 		return direccion;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
 	public double getValorFiscal() {
 		return valorFiscal;
-	}
-
-	public void setValorFiscal(double valorFiscal) {
-		this.valorFiscal = valorFiscal;
 	}
 	
 	public double porcentajeDelValorFiscal(Integer numero) {

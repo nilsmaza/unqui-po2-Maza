@@ -2,7 +2,7 @@ package ar.edu.unq.po2.tp5A;
 
 public class ProductoDeEmpresaTradicional extends Producto {
 
-	public ProductoDeEmpresaTradicional(double precio, Integer stock) {
+	public ProductoDeEmpresaTradicional(double precio, int stock) {
 		super(precio, stock);
 	}
 	
@@ -10,5 +10,4 @@ public class ProductoDeEmpresaTradicional extends Producto {
 		return super.getPrecio();
 	}
 	
-
 }

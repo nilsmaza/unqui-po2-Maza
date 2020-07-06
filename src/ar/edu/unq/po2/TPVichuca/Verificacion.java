@@ -16,7 +16,6 @@ public class Verificacion {
 	public void setVerificado(Estado verificado) {
 		this.verificado = verificado;
 	}
-
 	
 	public void verificar(Muestra muestra) {
 		this.getVerificado().verificar(muestra);

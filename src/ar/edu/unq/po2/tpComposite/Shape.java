@@ -39,7 +39,6 @@ public class Shape extends ShapeShifte {
 
 	@Override
 	public IShapeShifte compose(IShapeShifte shape) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

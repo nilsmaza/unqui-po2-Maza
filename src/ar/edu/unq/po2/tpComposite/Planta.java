@@ -18,7 +18,11 @@ public abstract class Planta extends Cultivo{
 		return costoPorAño;
 	}
 	
-	public Integer CostoDelCultivo() {
+	public int costoDeEsteCultivo() {
+		return this.getCostoPorAño();
+	}
+	
+	public int CostoDelCultivo() {
 		return this.getCostoPorAño();
 	}
 

@@ -3,9 +3,9 @@ package ar.edu.unq.po2.tp5A;
 public abstract class Producto implements CobrableEnCaja {
 	
 	private double precio;
-	private Integer stock;
+	private int stock;
 	
-	public Producto(double precio, Integer stock) {
+	public Producto(double precio, int stock) {
 		super();
 		this.precio = precio;
 		this.stock = stock;
@@ -19,13 +19,10 @@ public abstract class Producto implements CobrableEnCaja {
 		this.precio = precio;
 	}
 
-	public Integer getStock() {
+	public int getStock() {
 		return stock;
 	}
 
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
 	
 	public void descontarStock() {
 		this.stock--;
@@ -34,11 +31,10 @@ public abstract class Producto implements CobrableEnCaja {
 	public abstract double calcularPrecio();
 	
 	public void cobrarseEnCaja(Caja caja) {
-		if(this.getStock() >0) {
+		if(this.getStock() > 0){
 			caja.agregarPrecioAlMonto(this.calcularPrecio());
 			this.descontarStock();
 		}
 	}
 	
-
 }

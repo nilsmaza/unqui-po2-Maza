@@ -41,7 +41,6 @@ class MuestraTest {
 	@Test
 	public void testMuestra() {
 		
-	//	muestra1.setVerificado(verificacion);
 		assertFalse(muestra1.getOpiniones().isEmpty());
 		
 		when(respuesta1.nombreDelInsectoORespuesta()).thenReturn("Chince Foliada");
@@ -64,7 +63,6 @@ class MuestraTest {
 		when(otraOpinion1.getRespuesta()).thenReturn(respuesta1);
 		when(otraOpinion2.getRespuesta()).thenReturn(respuesta2);
 		
-		when(otraOpinion1.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("");
 		
 		muestra1.getOpiniones().add(otraOpinion1);
 		

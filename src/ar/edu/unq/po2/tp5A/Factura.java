@@ -6,7 +6,7 @@ public abstract class Factura implements CobrableEnCaja {
 	
 	public void cobrarseEnCaja(Caja caja) {
 		caja.agregarPrecioAlMonto(this.calcularPrecio());
-		caja.registraPago(this);
+		caja.registrarPago(this);
 	}
 
 }

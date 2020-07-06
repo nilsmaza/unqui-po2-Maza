@@ -1,12 +1,11 @@
 package ar.edu.unq.po2.tp5A;
 
-
-
-public abstract class Caja implements Agencia{
+public class Caja implements Agencia{
 	
 	private double montoAPagar;
 
 	public Caja() {
+		super();
 		this.montoAPagar = 0;
 	}
 
@@ -36,9 +35,9 @@ public abstract class Caja implements Agencia{
 	public void informarMontoAPagarAl(Cliente cliente) {
 		cliente.setSaldoAPagar(this.getMontoAPagar());
 	}
-	
-	public void registraPago(Factura factura) {
-		
+
+	public void registrarPago(Factura factura) {
+		/* */		
 	}
 
 }

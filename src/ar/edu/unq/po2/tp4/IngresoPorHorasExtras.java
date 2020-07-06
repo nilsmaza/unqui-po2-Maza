@@ -4,8 +4,6 @@ public class IngresoPorHorasExtras extends Ingreso{
 	
 	private int cantidadDeHoresExtras ;
 
-
-
 	public IngresoPorHorasExtras(String mesDePercepcion, String concepto, double montoPercibido,
 			int cantidadDeHoresExtras) {
 		super(mesDePercepcion, concepto, montoPercibido);
@@ -20,7 +18,7 @@ public class IngresoPorHorasExtras extends Ingreso{
 		this.cantidadDeHoresExtras = cantidadDeHoresExtras;
 	}
 	
-	public double getMontoimponible() {
+	public double getMontoImponible() {
 		return 0;
 	}
 

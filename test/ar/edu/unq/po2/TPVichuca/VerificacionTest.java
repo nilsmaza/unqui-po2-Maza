@@ -232,6 +232,9 @@ class VerificacionTest {
 		when(user1.tipoDeConocimiento()).thenReturn("Experto");
 		when(user2.tipoDeConocimiento()).thenReturn("Experto");
 		when(user3.tipoDeConocimiento()).thenReturn("Experto");
+		when(opinion1.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
+		when(opinion2.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
+		when(opinion3.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
 		when(opinion1.getUser()).thenReturn(user1);
 		when(opinion2.getUser()).thenReturn(user2);
 		when(opinion3.getUser()).thenReturn(user3);
@@ -240,6 +243,7 @@ class VerificacionTest {
 		muestra1.getOpiniones().add(opinion3);
 		muestra1.cambiarEstadoVerificacion();
 		
+		assertEquals(2,muestra1.cantidadDeExpertosQueOpinaron());
 		assertTrue(muestra1.getVerificado().getVerificado().puedeOpinarSobreLa(user2, muestra1));
 		
 		assertFalse(muestra1.getVerificado().getVerificado().puedeOpinarSobreLa(user1, muestra1));
@@ -330,26 +334,8 @@ class VerificacionTest {
 		assertEquals("Vichuca",muestra1.opinionActual().nombreDelInsecto());
 		assertFalse(muestra1.getVerificado().getVerificado().puedeOpinarSobreLa(user2, muestra1));
 		
-		
+		muestra1.cambiarEstadoVerificacion();
+		assertEquals("Vichuca",muestra1.opinionActual().nombreDelInsecto());
 	}
 	
-/*	@Test
-	void cambioDeVerificacion() {
-		
-		when(user1.getIdUser()).thenReturn(111);
-		when(user2.getIdUser()).thenReturn(222);
-		when(user3.getIdUser()).thenReturn(333);
-		when(opinion1.getUser()).thenReturn(user1);
-		when(opinion2.getUser()).thenReturn(user2);
-		when(opinion3.getUser()).thenReturn(user3);
-		when(opinion1.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
-		when(opinion3.tipoDeConocimientoAlaHoraDeOpinar()).thenReturn("Experto");
-		
-		muestra1 = new Muestra(user1, null, null, opinion1);
-		muestra1.getOpiniones().add(opinion3);
-	//	assertEquals("Basico" , muestra1.getVerificado().getVerTipo() );
-		muestra1.cambiarEstadoVerificacion();
-	//	assertEquals("Experto" , muestra1.getVerificado().getVerTipo() );
-	}
-*/
 }

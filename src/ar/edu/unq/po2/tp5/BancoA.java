@@ -2,15 +2,13 @@ package ar.edu.unq.po2.tp5;
 
 import java.util.ArrayList;
 
-public class Banco {
-
-	private ArrayList<Cliente> clientes;
-	private ArrayList<SolicitudDeCredito> solicitudes;
+public class BancoA {
 	
-	public Banco() {
+	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private ArrayList<SolicitudDeCredito> solicitudes = new ArrayList<SolicitudDeCredito>();
+	
+	public BancoA() {
 		super();
-		this.clientes = new ArrayList<Cliente>();
-		this.solicitudes = new ArrayList<SolicitudDeCredito>();
 	}
 
 	public ArrayList<Cliente> getClientes() {
@@ -28,8 +26,6 @@ public class Banco {
 	public void agregarSolicitud(SolicitudDeCredito solicitud) {
 		this.solicitudes.add(solicitud);
 	}
-	
-	
 	
 	public double montoTotalADesembolsar() {
 		double totalADesembolsar = 0;

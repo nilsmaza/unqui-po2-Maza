@@ -17,20 +17,12 @@ public class Ingreso {
 		return mesDePercepcion;
 	}
 
-	public void setMesDePercepcion(String mesDePercepcion) {
-		this.mesDePercepcion = mesDePercepcion;
-	}
-
 	public String getConcepto() {
 		return concepto;
 	}
 
 	public void setConcepto(String concepto) {
 		this.concepto = concepto;
-	}
-	
-	public void setMonto(double monto) {
-		this.monto = monto;
 	}
 	
 	public double getMonto() {

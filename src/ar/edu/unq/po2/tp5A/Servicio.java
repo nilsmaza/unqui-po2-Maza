@@ -1,11 +1,11 @@
 package ar.edu.unq.po2.tp5A;
 
-public abstract class Servicio extends Factura {
+public class Servicio extends Factura {
 
 	private double costoPorUnidad;
-	private Integer unidadesConsumidas;
+	private int unidadesConsumidas;
 	
-	public Servicio(double costoPorUnidad, Integer unidadesConsumidas) {
+	public Servicio(double costoPorUnidad, int unidadesConsumidas) {
 		super();
 		this.costoPorUnidad = costoPorUnidad;
 		this.unidadesConsumidas = unidadesConsumidas;
@@ -14,5 +14,5 @@ public abstract class Servicio extends Factura {
 	public double calcularPrecio() {
 		return this.costoPorUnidad * this.unidadesConsumidas;
 	}
-	
+
 }

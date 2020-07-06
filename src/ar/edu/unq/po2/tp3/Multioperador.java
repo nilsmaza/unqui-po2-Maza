@@ -6,37 +6,32 @@ public class Multioperador {
 	
 	private ArrayList<Integer> listaDeNumerosEnteros = new ArrayList<Integer>();
 
+	public Multioperador() {
+		super();
+	}
+
 	public ArrayList<Integer> getListaDeNumerosEnteros() {
 		return listaDeNumerosEnteros;
 	}
-
-	public void setListaDeNumerosEnteros(ArrayList<Integer> listaDeNumerosEnteros) {
-		this.listaDeNumerosEnteros = listaDeNumerosEnteros;
-	}
-
-	public Multioperador(ArrayList<Integer> listaDeNumerosEnteros) {
-		super();
-		this.listaDeNumerosEnteros = listaDeNumerosEnteros;
-	}
 	
-	public Integer sumarLaLista() {
-		Integer sumaTotal=0;
+	public int sumarLaLista() {
+		int sumaTotal=0;
 		for(int unEntero : listaDeNumerosEnteros) {
 			sumaTotal += unEntero;
 		}
 		return sumaTotal;
 	}
 	
-	public Integer restarLaLista() {
-		Integer restaTotal = 0;
-		for(int i = 0; i < listaDeNumerosEnteros.size() ; i++) {
-			restaTotal -= i;
+	public int restarLaLista() {
+		int restaTotal = 0;
+		for(int unEntero : listaDeNumerosEnteros) {
+			restaTotal -= unEntero;
 		}
 		return restaTotal;
 	}
 	
-	public Integer multiplicarLaLista() {
-		Integer multiplicacionTotal = 1;
+	public int multiplicarLaLista() {
+		int multiplicacionTotal = 1;
 		for(int unEntero : listaDeNumerosEnteros) {
 			multiplicacionTotal *= unEntero;
 		}

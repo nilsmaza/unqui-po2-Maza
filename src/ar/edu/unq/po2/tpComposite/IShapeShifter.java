@@ -2,7 +2,7 @@ package ar.edu.unq.po2.tpComposite;
 
 import java.util.ArrayList;
 
-public class IShapeShifter extends ShapeShifte{
+public class IShapeShifter extends ShapeShifte{ //composite
 	
 	private ArrayList<ShapeShifte> listaDe = new ArrayList<ShapeShifte>();
 	

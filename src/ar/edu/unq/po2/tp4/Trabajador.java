@@ -9,10 +9,6 @@ public class Trabajador {
 	public ArrayList<Ingreso> getIngresosPercibidosPorAño() {
 		return ingresosPercibidosPorAño;
 	}
-
-	public void setIngresosPercibidosPorAño(ArrayList<Ingreso> ingresosPercibidosPorAño) {
-		this.ingresosPercibidosPorAño = ingresosPercibidosPorAño;
-	}
 	
 	public void agregarIngreso(Ingreso nuevoIngreso) {
 		this.getIngresosPercibidosPorAño().add(nuevoIngreso);
@@ -27,7 +23,7 @@ public class Trabajador {
 	}
 	
 	
-	public Double getMontoImponible() {
+	public double getMontoImponible() {
 		double montoImponible = 0;
 		for (Ingreso ingreso : ingresosPercibidosPorAño) {
 			montoImponible += ingreso.getMontoImponible();

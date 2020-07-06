@@ -5,20 +5,16 @@ import java.util.ArrayList;
 public class EquipoDeTrabajo {
 	
 	private String nombre;
-	private ArrayList<Persona> listaDePersonas = new ArrayList<Persona>();
+	private ArrayList<Persona> listaDePersonas;
 	
-	public EquipoDeTrabajo(String nombre, ArrayList<Persona> listaDepersona) {
+	public EquipoDeTrabajo(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.listaDePersonas = listaDepersona;
+		this.listaDePersonas = new ArrayList<Persona>();
 	}
 
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public ArrayList<Persona> getListaDepersona() {
@@ -31,10 +27,6 @@ public class EquipoDeTrabajo {
 	
 	public void removerPersona(Persona unaPersona) {
 		listaDePersonas.remove(unaPersona);
-	}
-
-	public void setListaDepersona(ArrayList<Persona> listaDepersona) {
-		this.listaDePersonas = listaDepersona;
 	}
 	
 	public int promedioDeEdad() {

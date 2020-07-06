@@ -11,7 +11,7 @@ public class SolicitudDeCreditoPersonal extends SolicitudDeCredito {
 	}
 	
 	public boolean chequeoPorIngresoAnual() {
-		return super.getCliente().sueldoNetoAnual() >= 1500;
+		return super.getCliente().sueldoNetoAnual() >= 15000;
 	}
 	
 	public boolean chequeoPorLimiteDeMonto() {

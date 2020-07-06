@@ -1,6 +1,6 @@
 package ar.edu.unq.po2.tp5A;
 
-public abstract class Impuesto extends Factura{
+public class Impuesto extends Factura{
 	
 	private double costoFijo;
 

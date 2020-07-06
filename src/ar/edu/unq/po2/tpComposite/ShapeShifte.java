@@ -3,8 +3,7 @@ package ar.edu.unq.po2.tpComposite;
 import java.util.ArrayList;
 
 public abstract class ShapeShifte implements IShapeShifte {
-	
-	
+
 	public IShapeShifte compose(ShapeShifte shape) {
 		ArrayList<ShapeShifte> listaDe = new ArrayList<ShapeShifte>() ;
 		IShapeShifter nuevoShape;

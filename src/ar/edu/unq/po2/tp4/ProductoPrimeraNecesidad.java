@@ -1,10 +1,10 @@
 package ar.edu.unq.po2.tp4;
 
-public class ProductoDePrimetaNecesidad extends Producto {
+public class ProductoPrimeraNecesidad extends Producto {
 	
 	private double descuentoPorProducto ;
 
-	public ProductoDePrimetaNecesidad(String nombre, double precio, boolean precioCuidados,double descuento) {
+	public ProductoPrimeraNecesidad(String nombre, double precio, boolean precioCuidados,double descuento) {
 		super(nombre, precio, precioCuidados);
 		this.setDescuentoPorProducto(descuento);
 	}
