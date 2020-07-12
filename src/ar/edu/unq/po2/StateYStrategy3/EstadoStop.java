@@ -1,6 +1,11 @@
 package ar.edu.unq.po2.StateYStrategy3;
 
 public class EstadoStop implements IEstadoDelReproductor {
+	
+	@Override
+	public String estadoDelReproductor() {
+		return "Sin Cancion";
+	}
 
 	@Override
 	public void play(ReproductorMP3 reproductor) {
@@ -15,5 +20,7 @@ public class EstadoStop implements IEstadoDelReproductor {
 
 	@Override
 	public void stop(ReproductorMP3 reproductor) { } // no hace nada por que no hay cancion reproduciendose o pausada
+
+	
 
 }

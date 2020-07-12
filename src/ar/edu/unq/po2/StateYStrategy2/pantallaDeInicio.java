@@ -4,7 +4,7 @@ public class pantallaDeInicio implements IJugador {
 
 	@Override
 	public String iniciarJuego(VideoJuego juego) {
-		return "pantalla de inicio";
+		return "Presentacion";
 	}
 
 }

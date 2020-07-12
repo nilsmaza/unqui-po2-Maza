@@ -3,6 +3,11 @@ package ar.edu.unq.po2.StateYStrategy3;
 public class EstadoInical implements IEstadoDelReproductor {
 
 	@Override
+	public String estadoDelReproductor() {
+		return "Estado Inicial";
+	}
+
+	@Override
 	public void play(ReproductorMP3 reproductor) {
 		reproductor.getCancionAReproducir().play();
 		reproductor.setEstado(new EstadoPlay());
@@ -22,4 +27,5 @@ public class EstadoInical implements IEstadoDelReproductor {
 		reproductor.setCancionAReproducir(null);
 	}
 
+	
 }

@@ -58,7 +58,7 @@ public abstract class Empleado implements InterfaceEmpleado {
 	}
 	
 	public double aportesYObraSocial() {
-		return this.calcularSueldo() * 0.30 / 100;
+		return this.calcularSueldo() * 0.13;
 	}
 	
 	public double sueldoDelEmpleado() {

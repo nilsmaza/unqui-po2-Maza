@@ -4,9 +4,10 @@ public class EncriptadorPorVocales implements IStrategyEncriptacion{
 
 	@Override
 	public String encriptar(String texto) {
-		texto = texto.replace("u", "a").replace("o","u").replace("i", "o")
-					 .replace("i", "e").replace("a", "e");
-		return texto;
+		String textoEnMinuscula = texto.toLowerCase(); //minuscula
+		textoEnMinuscula = textoEnMinuscula.replace("u", "a").replace("o","u").replace("i", "o")
+					 .replace("e", "i").replace("a", "e");
+		return textoEnMinuscula;
 	}
 
 }

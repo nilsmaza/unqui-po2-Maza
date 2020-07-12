@@ -7,9 +7,8 @@ public class VideoJuego {
 	
 	
 	
-	public VideoJuego(int fichas, IJugador jugadorActual) {
+	public VideoJuego() {
 		super();
-		this.fichas = fichas;
 		this.jugadorActual = new pantallaDeInicio();
 	}
 

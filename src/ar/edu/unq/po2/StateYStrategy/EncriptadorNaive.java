@@ -5,6 +5,13 @@ public class EncriptadorNaive {
 	private IStrategyEncriptacion encriptacion;
 	private IStrategyDesencriptacion desencriptacion;
 	
+	
+	public EncriptadorNaive(IStrategyEncriptacion encriptacion, IStrategyDesencriptacion desencriptacion) {
+		super();
+		this.encriptacion = encriptacion;
+		this.desencriptacion = desencriptacion;
+	}
+
 	public void setEncriptacion(IStrategyEncriptacion encriptacion) {
 		this.encriptacion = encriptacion;
 	}
@@ -13,12 +20,12 @@ public class EncriptadorNaive {
 		this.desencriptacion = desencriptacion;
 	}
 
-	public String encriptar(String cadena) {
-		return encriptacion.encriptar(cadena);
+	public String encriptar(String texto) {
+		return encriptacion.encriptar(texto);
 	}
 	
-	public String desencriptar(String cadena) {
-		return desencriptacion.desencriptar(cadena);
+	public String desencriptar(String texto) {
+		return desencriptacion.desencriptar(texto);
 	}
 	
 }

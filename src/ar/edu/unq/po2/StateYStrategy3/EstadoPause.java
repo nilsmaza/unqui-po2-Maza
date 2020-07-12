@@ -3,6 +3,11 @@ package ar.edu.unq.po2.StateYStrategy3;
 public class EstadoPause implements IEstadoDelReproductor {
 
 	@Override
+	public String estadoDelReproductor() {
+		return "Cancion Pausada";
+	}
+	
+	@Override
 	public void play(ReproductorMP3 reproductor) throws Exception {
 		throw new Exception("Cancion Pausada");
 
@@ -20,5 +25,7 @@ public class EstadoPause implements IEstadoDelReproductor {
 		reproductor.setEstado(new EstadoStop());
 		reproductor.setCancionAReproducir(null);
 	}
+
+	
 
 }

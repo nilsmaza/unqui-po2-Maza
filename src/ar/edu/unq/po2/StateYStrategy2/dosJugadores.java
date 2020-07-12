@@ -6,7 +6,7 @@ public class dosJugadores implements IJugador {
 	@Override
 	public String iniciarJuego(VideoJuego juego) {
 		juego.setFichas(juego.getFichas() - 2);
-		return "jugador1 Vs jugador2";
+		return "Cooperativo";
 	}
 
 }

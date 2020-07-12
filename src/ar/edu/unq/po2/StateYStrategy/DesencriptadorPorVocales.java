@@ -4,9 +4,10 @@ public class DesencriptadorPorVocales implements IStrategyDesencriptacion{
 
 	@Override
 	public String desencriptar(String texto) {
-		texto = texto.replace("a", "e").replace("i","e").replace("o", "i")
+		String textoEnMinuscula = texto.toLowerCase(); //minuscula
+		textoEnMinuscula = textoEnMinuscula.replace("e", "a").replace("i","e").replace("o", "i")
 				 .replace("u", "o").replace("u", "a");
-	return texto;
+	return textoEnMinuscula;
 	}
 
 }

@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class Empresa {
 	
 	private String nombre;
-	private ArrayList<Empleado> empleados;
+	private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 	
-	public Empresa(String nombre, ArrayList<Empleado> empleados) {
+	public Empresa(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.empleados = new ArrayList<Empleado>();
 	}
 
 	public String getNombre() {
@@ -29,7 +28,20 @@ public class Empresa {
 		this.empleados = empleados;
 	}
 	
+	public void agregarEmpleado(Empleado nuevoEmpeleado) {
+		this.getEmpleados().add(nuevoEmpeleado);
+	}
 	
+	public void despedirEmpleado(Empleado empeleado) {
+		this.getEmpleados().add(empeleado);
+	}
 	
+	public double totalAPagarEmpleados(){
+		double total = 0;
+			for(Empleado empleadoActual : this.getEmpleados()) {
+				total += empleadoActual.sueldoDelEmpleado();
+			}
+		return total;
+	}
 
 }
